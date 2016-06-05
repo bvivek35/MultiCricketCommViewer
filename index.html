@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Live Cricket Commentary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/app/index.css" />
+
+    <script src="js/lib/jquery.min.js" charset="utf-8"></script>
+    <script src="js/lib/bootstrap.min.js" charset="utf-8"></script>
+
+    <script src="js/app/flashscore.js" charset="utf-8"></script>
+    <script src="js/app/scorecard.js" charset="utf-8"></script>
+    <script src="js/app/commentary.js" charset="utf-8"></script>
+    <script src="js/app/match.js" charset="utf-8"></script>
+    <script src="js/app/manager.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $("document").ready(function() {
+            manager = Manager();
+        });
+    </script>
+</head>
+<body id="body" class="container">
+    <div class="jumbotron">
+        <h1>Mashup Of Cricket Scores And Commentary From All Matches</h1>
+    </div>
+</body>
+</html>
