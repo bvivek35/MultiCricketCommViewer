@@ -1,0 +1,8 @@
+hr {
+    border : 1px solid black;
+}
+comm {
+    position: absolute;
+    height : 100px;
+    overflow : scroll;
+}
