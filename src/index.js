@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import First from './components/First';
+import Layout from './components/Layout';
 
-ReactDOM.render(<First />, document.getElementById('app'));
+ReactDOM.render(<Layout />, document.getElementById('app'));
