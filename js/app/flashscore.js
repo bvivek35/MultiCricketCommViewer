@@ -17,6 +17,7 @@ function FlashScore(cricinfo_url) {
             _fs.div.appendChild(_fs.stat);
             _fs.desc.appendChild(_fs.atag);
             _fs.atag.href = cricinfo_url;
+            _fs.atag.target = "_blank";
         },
         update : function (json, cricinfo_url) {
             //console.log(json);

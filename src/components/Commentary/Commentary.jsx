@@ -1,7 +1,13 @@
 import React from 'react';
+import { ReactLoggerComponent } from 'react-logger-component';
 
-class Commentary extends React.Component {
-    render() {
+class Commentary extends ReactLoggerComponent {
+    constructor(props) {
+        super(props);
+        this.displayName = this.constructor.name; // For Logger
+    }
+
+   render() {
         return (
             <div>
                 Commentary

@@ -1,16 +1,52 @@
 import React from 'react';
+import { ReactLoggerComponent } from 'react-logger-component';
 
 import Match from '../Match';
+import {
+    getLiveMatches as getLiveMatchesAPI,
+} from '../../sources/yqlAPI';
+ import { extractMatchId } from '../../utils/Misc';
 
-class Layout extends React.Component {
+class Layout extends ReactLoggerComponent {
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.displayName = this.constructor.name; // For Logger
+    }
+    componentDidMount() {
+        getLiveMatchesAPI()
+        .then((resp) => {
+            console.log(resp);
+            this.setState({
+                liveMatches: ((resp.query || {}).results || {}).item
+                                .map(match => extractMatchId(match.guid))
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }
+
     render() {
-        return(
-            <div>
-                App Layout
-                <Match />
-            </div>
-        );
+        if (!this.state.liveMatches) {
+            return(
+                <div>
+                    Fetching Matches...
+                </div>
+            );
+        } else {
+            return this.state.liveMatches.map(matchId => {
+                return(
+                    <div key={matchId}>
+                        <Match matchId={matchId} />
+                    </div>
+                );
+            });
+        }
+
+            
     }
 }
 
 export default Layout;
+
