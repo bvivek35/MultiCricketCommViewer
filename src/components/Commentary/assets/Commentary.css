@@ -1,0 +1,12 @@
+.commentary_margin_vertical {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.scroller {
+    overflow-y: scroll;
+}
+
+.commentary_container_height {
+    height: 30%;
+}

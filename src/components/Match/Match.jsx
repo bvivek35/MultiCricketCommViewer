@@ -8,6 +8,8 @@ import {
     getMatchData as getMatchDataAPI
 } from '../../sources/yqlAPI';
 
+import './assets/Match.css';
+
 
 class Match extends ReactLoggerComponent {
     constructor(props) {
@@ -20,7 +22,7 @@ class Match extends ReactLoggerComponent {
         console.debug('Recv props: ', this.props)
         getMatchDataAPI(this.props.matchId)
         .then((match) => {
-            console.log(match);
+            console.debug(match);
             this.setState({ match });
         })
         .catch((err) => {
@@ -39,9 +41,9 @@ class Match extends ReactLoggerComponent {
         } else {
             console.debug(this.state);
             return (
-                <div>
+                <div className="match_height_fill_children">
                     <FlashScore flashScore={this.state.match.flashScore} />
-                    <Scorecard scorecard={this.state.match.scorecard} />
+                    <Scorecard playerMap={this.state.match.playerMap} scorecard={this.state.match.scorecard} />
                     <Commentary commentary={this.state.match.commentary} />
                 </div>
             );

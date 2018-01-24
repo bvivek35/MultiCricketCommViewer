@@ -15,7 +15,7 @@ export default class Scorecard {
                 playerId: bowler.player_id,
                 overs: bowler.overs,
                 maidens: bowler.maidens,
-                conceded: bowler.conceded,
+                runsConceded: bowler.conceded,
                 wickets: bowler.wickets,
                 economyRate: bowler.economy_rate
             };

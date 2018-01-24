@@ -35,15 +35,17 @@ class Layout extends ReactLoggerComponent {
                 </div>
             );
         } else {
-            const matchesList = this.state.liveMatches.map(matchId => {
+            const matchesList = this.state.liveMatches.map((matchId, idx) => {
                 return(
-                    <div key={matchId}>
+                    <div className="row" key={matchId}>
                         <Match matchId={matchId} />
                     </div>
                 );
             });
             return(
-                <div> {matchesList} </div>
+                <div className="container"> 
+                    {matchesList}
+                </div>
             );
         }       
     }

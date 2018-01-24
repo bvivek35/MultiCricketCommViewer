@@ -10,9 +10,5 @@ export default class Team {
         this.shortName = json.team_short_name;
         this.abbr = json.team_abbreviation;
         this.players = (json.player || []).map(p => new Player(p));
-        this.playerMap = this.players.reduce((acc, curr) => {
-            acc[curr.playerId] = curr;
-            return acc;
-        }, {});
     }
 };

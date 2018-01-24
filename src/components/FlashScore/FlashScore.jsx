@@ -17,14 +17,14 @@ class FlashScore extends ReactLoggerComponent {
         } else {
             const { description, summary, status } = this.props.flashScore;
             return(
-                <div>
-                    <div>
+                <div className="row">
+                    <div className="col-xs-12">
                         {description}
                     </div>
-                    <div>
+                    <div className="col-xs-12">
                         {summary}
                     </div>
-                    <div>
+                    <div className="col-xs-12">
                         {status}
                     </div>
                 </div>
