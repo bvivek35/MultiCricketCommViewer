@@ -19,8 +19,9 @@ class Match extends ReactLoggerComponent {
     componentDidMount() {
         console.debug('Recv props: ', this.props)
         getMatchDataAPI(this.props.matchId)
-        .then((resp) => {
-            this.setState({matchData: resp});
+        .then((match) => {
+            console.log(match);
+            this.setState({ match });
         })
         .catch((err) => {
             console.error('Error fetching match data: ', err);
@@ -29,7 +30,7 @@ class Match extends ReactLoggerComponent {
 
     render() {
         console.debug('Match with matchId: ', this.props.matchId);
-        if (!this.state.matchData) {
+        if (!this.state.match) {
             return (
                 <div>
                     Loading Match Data...
@@ -39,9 +40,9 @@ class Match extends ReactLoggerComponent {
             console.debug(this.state);
             return (
                 <div>
-                    <FlashScore />
-                    <Scorecard />
-                    <Commentary />
+                    <FlashScore flashScore={this.state.match.flashScore} />
+                    <Scorecard scorecard={this.state.match.scorecard} />
+                    <Commentary commentary={this.state.match.commentary} />
                 </div>
             );
         }

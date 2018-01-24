@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { genFeedUrl, genMatchUrl } from '../utils/Misc';
+import Match from '../models/Match';
 
 export const getLiveMatches = () => {
     const url = genFeedUrl();
@@ -14,5 +15,5 @@ export const getMatchData = (matchId) => {
     console.info('Trying to get info of match: ', matchId);
     console.debug('Trying to fetch from: ', url);
     return axios.get(url)
-            .then((resp) => resp.data);
+            .then((resp) => new Match(matchId, (((resp.data || {}).query || {}).results || {}).json));
 };

@@ -8,11 +8,20 @@ class Scorecard extends ReactLoggerComponent {
     }
 
     render() {
-        return (
-            <div>
-                Scorecard
-            </div>
-        );
+        if (!this.props.scorecard) {
+            return(
+                <div>
+                    Loading Scorecard...
+                </div>
+            );
+        } else {
+            return(
+                <div>
+                    {JSON.stringify(this.props.scorecard)}
+                </div>
+            );
+        }
+        
     }
 }
 

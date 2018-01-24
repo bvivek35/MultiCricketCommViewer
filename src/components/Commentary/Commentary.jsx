@@ -8,11 +8,19 @@ class Commentary extends ReactLoggerComponent {
     }
 
    render() {
+    if (!this.props.commentary) {
         return (
             <div>
-                Commentary
+                Loading Commentary...
             </div>
         );
+       } else {
+            return(
+                <div>
+                    {JSON.stringify(this.props.commentary)}
+                </div>
+            );
+       }
     }
 }
 

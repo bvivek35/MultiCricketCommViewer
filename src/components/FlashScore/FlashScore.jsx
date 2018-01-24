@@ -8,11 +8,29 @@ class FlashScore extends ReactLoggerComponent {
     }
 
     render() {
-        return (
-            <div>
-                FlashScore
-            </div>
-        );
+        if (!this.props.flashScore) {
+            return (
+                <div>
+                    Loading FlashScore...
+                </div>
+            );
+        } else {
+            const { description, summary, status } = this.props.flashScore;
+            return(
+                <div>
+                    <div>
+                        {description}
+                    </div>
+                    <div>
+                        {summary}
+                    </div>
+                    <div>
+                        {status}
+                    </div>
+                </div>
+            );
+        }
+        
     }
 }
 
